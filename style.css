@@ -11,13 +11,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(120deg, #667eea, #764ba2, #43cea2);
+  background: linear-gradient(120deg, #667eea, #764ba2, #ff758c);
   background-size: 300% 300%;
-  animation: gradientMove 10s ease infinite;
+  animation: gradientMove 12s ease infinite;
+  overflow: hidden;
+}
+
+/* Falling roses container */
+#rose-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Individual rose */
+.rose {
+  position: absolute;
+  top: -50px;
+  animation: fall linear forwards;
+  opacity: 0.9;
 }
 
 /* Glass card */
 .card {
+  position: relative;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   border-radius: 20px;
@@ -30,11 +52,11 @@ body {
   animation: floatIn 0.9s ease-out;
 }
 
-/* Gradient text */
+/* Gradient title */
 .title {
   font-size: 2.5rem;
   margin: 0;
-  background: linear-gradient(90deg, #fff, #fbd786);
+  background: linear-gradient(90deg, #ffffff, #ffd1dc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -44,7 +66,7 @@ body {
   margin: 12px 0 25px;
 }
 
-/* Button */
+/* Button styling */
 button {
   padding: 14px 28px;
   border-radius: 30px;
@@ -65,7 +87,7 @@ button:active {
   transform: scale(0.97);
 }
 
-/* Output text */
+/* Output message */
 #output {
   margin-top: 20px;
   font-size: 18px;
@@ -78,6 +100,13 @@ button:active {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 @keyframes floatIn {
