@@ -2,27 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rose Falling Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Shivika ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Falling roses -->
-  <div id="rose-container"></div>
+  <div class="hearts"></div>
 
-  <!-- Main card -->
-  <div class="card">
-    <h1 class="title">Test Page ✨</h1>
-    <p class="subtitle">
-      Hi Shivika 🌹
-    </p>
+  <div class="container">
 
-    <button id="magicBtn">Click me</button>
-    <div id="output"></div>
+    <!-- STEP 1 -->
+    <div class="step active" id="step1">
+      <h1>Hey Shivika ❤️</h1>
+      <p>I made something just for you…</p>
+      <button onclick="nextStep()">Okay, I’m curious 👀</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+      <h1>You changed everything 🥹</h1>
+      <p>
+        Before you, things were just… normal.<br><br>
+        Then you walked in and suddenly life felt warmer, louder, happier.<br>
+        You didn’t just enter my life… you gave it a whole new meaning 💖
+      </p>
+      <button onclick="nextStep()">Aww… keep going 😌</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+      <h1>10 things I love about you 💕</h1>
+      <p class="list">
+        1. Your smile (dangerously cute)<br>
+        2. The way you talk 🥰<br>
+        3. Your beautiful eyes 😌<br>
+        4. Your giggles 🤭<br>
+        5. Your kindness 💗<br>
+        6. How you care<br>
+        7. Your Cooking 👩‍🍳<br>
+        8. Your support<br>
+        9. Your presence<br>
+        10. You. Just… you ❤️
+      </p>
+      <button onclick="nextStep()">Okay wow 😳</button>
+    </div>
+
+    <!-- QUIZ 1 -->
+    <div class="step quiz" id="step4">
+      <h1>Quick quiz 😏</h1>
+      <p>What’s the one thing that always makes my heart full?</p>
+      <button onclick="quizWrong(this)">Biriyani 🍕</button>
+      <button onclick="quizCorrect(this)">Shivika 💖</button>
+      <div class="feedback"></div>
+    </div>
+
+    <!-- QUIZ 2 -->
+    <div class="step quiz" id="step5">
+      <h1>Next one 😌</h1>
+      <p>What’s my favorite place?</p>
+      <button onclick="quizWrong(this)">Beach 🏖️</button>
+      <button onclick="quizCorrect(this)">With Shivika 🥰</button>
+      <div class="feedback"></div>
+    </div>
+
+    <!-- QUIZ 3 -->
+    <div class="step quiz" id="step6">
+      <h1>Easy one 😏</h1>
+      <p>What makes me smile instantly?</p>
+      <button onclick="quizWrong(this)">Tea ☕</button>
+      <button onclick="quizCorrect(this)">Shivika 😌</button>
+      <div class="feedback"></div>
+    </div>
+
+    <!-- QUIZ 4 -->
+    <div class="step quiz" id="step7">
+      <h1>Be honest 😳</h1>
+      <p>Who lives rent-free in my head?</p>
+      <button onclick="quizWrong(this)">Sleep 😴</button>
+      <button onclick="quizCorrect(this)">Shivika ❤️</button>
+      <div class="feedback"></div>
+    </div>
+
+    <!-- QUIZ 5 -->
+    <div class="step quiz" id="step8">
+      <h1>Last one 💕</h1>
+      <p>What’s my favorite feeling?</p>
+      <button onclick="quizWrong(this)">Winning 🏆</button>
+      <button onclick="quizCorrect(this)">Her happiness 💖</button>
+      <div class="feedback"></div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="step" id="step9">
+      <h1>I want to ask you something 💖</h1>
+      <p>Will you be my Valentine?</p>
+
+      <div class="buttons">
+        <button onclick="goToConvince()">Convince me 😏</button>
+        <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+        <button id="noBtn" onclick="noClicked()">No 🙄</button>
+      </div>
+    </div>
+
+    <!-- CONVINCE -->
+    <div class="step" id="convince">
+      <h1>Okay… listen 😌</h1>
+      <p>
+        I will love you kindly, softly and gently.<br>
+        I will love you in ways that never make you question your worth again<br>
+        I will love you in the ways you want and deserve to be loved and I will love you like that forever.<br>
+        You are everything to me 💖
+      </p>
+      <button onclick="backToQuestion()">Go back 👈</button>
+    </div>
+
+    <!-- FINAL -->
+    <div class="step" id="final">
+      <h1>YAYYY 🎉💖</h1>
+      <p>
+        Best decision ever 😌<br><br>
+        Happy Valentine’s Day, Baby ❤️<br><br>
+        Screenshot this and send it to me 💌
+      </p>
+    </div>
+    
+    
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
