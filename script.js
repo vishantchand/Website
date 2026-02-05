@@ -3,8 +3,7 @@ const btn = document.getElementById("magicBtn");
 const output = document.getElementById("output");
 
 const messages = [
-  "Hii Shivika! 💜",
-  "Roses are falling just for you 🌹",
+"Roses are falling just for you 🌹",
 ];
 
 btn.addEventListener("click", () => {
@@ -41,3 +40,4 @@ function createRose() {
 
 // Create roses continuously
 setInterval(createRose, 400);
+
