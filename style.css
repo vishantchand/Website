@@ -1,121 +1,177 @@
-/* Reset */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Animated gradient background */
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(120deg, #667eea, #764ba2, #ff758c);
-  background-size: 300% 300%;
-  animation: gradientMove 12s ease infinite;
   overflow: hidden;
 }
 
-/* Falling roses container */
-#rose-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Individual rose */
-.rose {
-  position: absolute;
-  top: -50px;
-  animation: fall linear forwards;
-  opacity: 0.9;
-}
-
-/* Glass card */
-.card {
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
+.container {
+  background: rgba(255, 255, 255, 0.95);
   padding: 40px;
+  border-radius: 22px;
   text-align: center;
-  color: #fff;
   width: 90%;
   max-width: 420px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  animation: floatIn 0.9s ease-out;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  animation: fadeIn 0.8s ease;
 }
 
-/* Gradient title */
-.title {
-  font-size: 2.5rem;
-  margin: 0;
-  background: linear-gradient(90deg, #ffffff, #ffd1dc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.subtitle {
-  opacity: 0.9;
-  margin: 12px 0 25px;
+.step {
+  display: none;
 }
 
-/* Button styling */
+.step.active {
+  display: block;
+}
+
+h1 {
+  color: #e63946;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
 button {
-  padding: 14px 28px;
-  border-radius: 30px;
+  padding: 12px 26px;
   border: none;
+  border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.25s ease;
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.07);
 }
 
-button:active {
-  transform: scale(0.97);
+#yesBtn {
+  background: #e63946;
+  color: white;
+  box-shadow: 0 8px 20px rgba(230,57,70,0.4);
 }
 
-/* Output message */
-#output {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  min-height: 24px;
+#noBtn {
+  background: #aaa;
+  color: white;
+  position: relative;
 }
 
-/* Animations */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+/* Floating Hearts */
+.hearts span {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp linear infinite;
 }
 
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
+@keyframes floatUp {
+  0% {
     transform: translateY(0) scale(1);
+    opacity: 0;
   }
+  20% { opacity: 1; }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Mobile polish */
+@media (max-width: 480px) {
+  p {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px 22px;
+  }
+  
+  .list {
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+}
+  .type::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.correct {
+  background: #e63946 !important;
+  color: white;
+  transform: scale(1.15);
+}
+
+.wrong {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+.correct {
+  background: #e63946 !important;
+  color: white;
+  transform: scale(1.15);
+}
+
+.wrong {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+.feedback {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.feedback.correct {
+  color: #2ecc71;
+}
+
+.feedback.wrong {
+  color: #e74c3c;
+}
+
+
 }
